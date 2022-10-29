@@ -18,6 +18,9 @@ class Masa{
     Masa& operator=(const Masa& other);
 
     ~Masa();
+    int get_masa(){
+        return nr_masa;
+        }
 
     friend std::ostream& operator<<(std::ostream& os, const Masa& ms) ;
 };
@@ -32,7 +35,7 @@ public:
      Preparat ();
      Preparat(const std::string& nume_preparat_, float gramaj_, float pret_, int timp_preparare_);
 
-    friend std::ostream& operator<<(std::ostream& os, const Preparat& prep);
+     friend std::ostream& operator<<(std::ostream& os, const Preparat& prep);
 
 };
 
@@ -40,32 +43,28 @@ class Comanda{
     int ID_COMANDA;
     std::string tip_plata;//cash/card
     Masa tip_masa;
-    int nr_preparate;
+    std::vector<Preparat> preparate_comandate;
 
 public:
-    Comanda();
-      Comanda(const std::string& tip_plata_, Masa tip_masa_, int nr_preparate_, int id) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, nr_preparate{nr_preparate_}{
-      }
-
+      Comanda();
+      Comanda(const std::string& tip_plata_, Masa tip_masa_, int id, std::vector<Preparat> preparate_comandate_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_))
+      {}
     int get_id(){
         return ID_COMANDA;
         }
 
-    friend std::ostream& operator<<(std::ostream& os, const Comanda& cmd);
+    friend std::ostream& operator<<(std::ostream& os, Comanda& cmd);
 };
 
 class Ospatar{
      std::string nume;
      float salariu;
-      Comanda cmd;
+     Comanda cmd;
 public:
     Ospatar();
     Ospatar(const std::string& nume_, float salariu_, Comanda cmd_);
 
-    friend std::ostream& operator<<(std::ostream& os, Ospatar& osp) {
-       os << "Nume: " << osp.nume << ", Salariu: " << osp.salariu <<"Comanda: "<<osp.cmd.get_id()<<"\n";
-        return os;
-    }
+    friend std::ostream& operator<<(std::ostream& os, Ospatar& osp);
 };
 
 #endif
