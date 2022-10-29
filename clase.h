@@ -40,7 +40,7 @@ class Comanda{
     int ID_COMANDA;
     std::string tip_plata;//cash/card
     Masa tip_masa;
-    int nr_preparate=0;
+    int nr_preparate;
 
 public:
     Comanda();
@@ -68,4 +68,4 @@ public:
     }
 };
 
-#endif 
+#endif
