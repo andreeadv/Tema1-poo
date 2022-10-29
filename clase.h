@@ -27,13 +27,13 @@ class Masa{
 
 class Preparat{
      std::string nume_preparat;
-     float gramaj;
-     float pret;
+     int gramaj;
+     double pret;
      int timp_preparare;//in minute
 
 public:
      Preparat ();
-     Preparat(const std::string& nume_preparat_, float gramaj_, float pret_, int timp_preparare_);
+     Preparat(const std::string& nume_preparat_, int gramaj_, double pret_, int timp_preparare_);
 
      friend std::ostream& operator<<(std::ostream& os, const Preparat& prep);
 
@@ -58,13 +58,13 @@ public:
 
 class Ospatar{
      std::string nume;
-     float salariu;
+     double salariu;
      Comanda cmd;
 public:
     Ospatar();
-    Ospatar(const std::string& nume_, float salariu_, Comanda cmd_);
+    Ospatar(const std::string& nume_, double salariu_,const Comanda cmd_);
 
     friend std::ostream& operator<<(std::ostream& os, Ospatar& osp);
 };
 
-#endif
+#endif 

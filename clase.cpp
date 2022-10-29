@@ -29,7 +29,7 @@ std::ostream& operator<<(std::ostream& os, const Masa& ms) {
 Preparat::Preparat (){
     //std::cout<<"Constructor fara parametrii Preparat\n";
 }
-Preparat:: Preparat(const std::string& nume_preparat_, float gramaj_, float pret_, int timp_preparare_) : nume_preparat{nume_preparat_}, gramaj{gramaj_}, pret{pret_}, timp_preparare{timp_preparare_}{
+Preparat:: Preparat(const std::string& nume_preparat_, int gramaj_, double pret_, int timp_preparare_) : nume_preparat{nume_preparat_}, gramaj{gramaj_}, pret{pret_}, timp_preparare{timp_preparare_}{
         //std::cout << "Constructor de initializare cu parametrii Preparat\n";
     }
 std::ostream& operator<<(std::ostream& os, const Preparat& prep) {
@@ -53,7 +53,7 @@ std::ostream& operator<<(std::ostream& os, Comanda& cmd) {
 Ospatar::Ospatar(){
     //std::cout<<"Constructor de initializare fara parametrii ospatar\n";
 }
-Ospatar::Ospatar(const std::string& nume_, float salariu_, Comanda cmd_) : nume{nume_}, salariu{salariu_}, cmd{cmd_} {
+Ospatar::Ospatar(const std::string& nume_, double salariu_, const Comanda cmd_) : nume{nume_}, salariu{salariu_}, cmd{cmd_} {
         //std::cout << "Constructor de initializare cu parametrii Ospatar\n";
     }
 std::ostream& operator<<(std::ostream& os, Ospatar& osp) {
