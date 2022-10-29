@@ -47,7 +47,7 @@ class Comanda{
 
 public:
       Comanda();
-      Comanda(const std::string& tip_plata_, Masa tip_masa_, int id, std::vector<Preparat> preparate_comandate_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_))
+      Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_))
       {}
     int get_id(){
         return ID_COMANDA;
@@ -62,9 +62,9 @@ class Ospatar{
      Comanda cmd;
 public:
     Ospatar();
-    Ospatar(const std::string& nume_, double salariu_,const Comanda cmd_);
+    Ospatar(const std::string& nume_, double salariu_,const Comanda &cmd_);
 
     friend std::ostream& operator<<(std::ostream& os, Ospatar& osp);
 };
 
-#endif 
+#endif

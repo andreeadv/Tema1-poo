@@ -1,4 +1,3 @@
-
 #include "clase.h"
 
 Masa::Masa(){
@@ -42,18 +41,23 @@ Comanda::Comanda()
 {
     //std::cout<<"Constructor fara parametrii Comanda\n";
 }
+///explicatie??
 std::ostream& operator<<(std::ostream& os, Comanda& cmd) {
        os << "ID comanda: " << cmd.ID_COMANDA << " Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<"\n\n";
 
-       for (const auto &p: cmd.preparate_comandate)
-            os <<">"<< p << " \n";
+       for (const auto &prep: cmd.preparate_comandate)
+            os <<">"<< prep << " \n";
+            /**
+            for(const auto& stud : vec2) {
+                std::cout << stud;
+             }*/
        return os;
     }
 
 Ospatar::Ospatar(){
     //std::cout<<"Constructor de initializare fara parametrii ospatar\n";
 }
-Ospatar::Ospatar(const std::string& nume_, double salariu_, const Comanda cmd_) : nume{nume_}, salariu{salariu_}, cmd{cmd_} {
+Ospatar::Ospatar(const std::string& nume_, double salariu_, const Comanda &cmd_) : nume{nume_}, salariu{salariu_}, cmd{cmd_} {
         //std::cout << "Constructor de initializare cu parametrii Ospatar\n";
     }
 std::ostream& operator<<(std::ostream& os, Ospatar& osp) {
