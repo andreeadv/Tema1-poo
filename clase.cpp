@@ -61,18 +61,18 @@ std::ostream& operator<<(std::ostream& os, Ospatar& osp) {
         return os;
     }
 
-double Comanda::notadeplata(std::vector<Preparat> preparate_comandate)
+double Comanda::notadeplata(std::vector<Preparat> preparate_comandate_)
     {
        double total_plata=0;
-       for(unsigned int i=0;i<preparate_comandate.size();i++)
-          total_plata+=preparate_comandate[i].get_pret();
+       for(unsigned int i=0;i<preparate_comandate_.size();i++)
+          total_plata+=preparate_comandate_[i].get_pret();
         return total_plata;
     }
-int Comanda::timptotal(std::vector<Preparat> preparate_comandate)
+int Comanda::timptotal(std::vector<Preparat> preparate_comandate_)
     {
        int timp_total=0;
-       for(unsigned int i=0;i<preparate_comandate.size();i++)
-          timp_total+=preparate_comandate[i].get_timppreparare();
+       for(unsigned int i=0;i<preparate_comandate_.size();i++)
+          timp_total+=preparate_comandate_[i].get_timppreparare();
        return timp_total;
     }
 double Ospatar::salariumajorat()
