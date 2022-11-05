@@ -5,6 +5,7 @@
 #include <vector>
 
 class Masa{
+
      std::string zona;//restaurantul dispune de 2 zone,acestea fiind numite: interior, exterior
      int nr_masa;
      int nr_locuri;
@@ -18,10 +19,7 @@ class Masa{
     Masa& operator=(const Masa& other);
 
     ~Masa();
-    int get_masa(){
-        return nr_masa;
-        }
-
+    int get_masa();
     friend std::ostream& operator<<(std::ostream& os, const Masa& ms) ;
 
 };
@@ -37,14 +35,8 @@ public:
      Preparat(const std::string& nume_preparat_, int gramaj_, double pret_, int timp_preparare_);
 
      friend std::ostream& operator<<(std::ostream& os, const Preparat& prep);
-     double get_pret()
-     {
-         return pret;
-     }
-     int get_timppreparare()
-     {
-         return timp_preparare;
-     }
+     double get_pret();
+     int get_timppreparare();
 };
 
 class Comanda{
@@ -55,23 +47,17 @@ class Comanda{
     int timptotalprep;
 
 public:
-      Comanda();
-      Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}
-      {}
-    int get_id(){
-        return ID_COMANDA;
-        }
-
+    Comanda();
+    Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}
+    {}
+    int get_id();
     friend std::ostream& operator<<(std::ostream& os, Comanda& cmd);
     //functie care sa calculeze nota de plata(pretul total al produselor comandate)
     double notadeplata(std::vector<Preparat> preparate_comandate_);
     //calculeaza timpul de pregatire al unei comenzi(suma timpurilor de preparare a preparatelor comandate)
     int timptotal(std::vector<Preparat> preparate_comandate_);
-
-    void set_timp(){timptotalprep=timptotal(preparate_comandate);}
-    int get_timp(){return timptotalprep;}
-
-
+    void set_timp();
+    int get_timp();
 };
 
 class Ospatar{
@@ -89,5 +75,5 @@ public:
      double salariumajorat();
 };
 
-#endif
 
+#endif

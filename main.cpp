@@ -14,6 +14,7 @@ int main()
     Masa m2("Exterior",2,2);
     std::cout<<m1;
     std::cout<<m2;
+
     Preparat paste("Paste",250,32.5,20);
     Preparat limonada("Limonada",100,19.99,5);
     Preparat pizza1("Pizza Margherita",350,38,30);
@@ -32,7 +33,7 @@ int main()
     Comanda c1("cash",m1,101,preparate_comandate1,0);
     Comanda c2("card",m2,102,preparate_comandate2,0);
     Comanda c3("card",m2,103,preparate_comandate3,0);
-
+    //afisare comenzi inainte de sortare
     std::cout<<"C1: "<<c1<<"\n";
     std::cout<<"C2: "<<c2<<"\n";
     std::cout<<"C3: "<<c3<<"\n";
@@ -58,10 +59,10 @@ int main()
     comenzi.push_back(c1);
     comenzi.push_back(c2);
     comenzi.push_back(c3);
-  
+
     //odonare comenzi crescator dupa timpul total de pregatire
     std::sort(comenzi.begin(),comenzi.end(),&cmp);
-    std::cout<<"COMENZI SORTATE DUPA TIMPUL DE PREPARARE\n";
+    std::cout<<"COMENZI SORTATE DUPA TIMPUL DE PRGATIRE\n";
     for(unsigned int i=0;i<comenzi.size();i++) {
         std::cout << comenzi[i];
     }
@@ -80,8 +81,9 @@ int main()
 ///notes
 /*
 functionalitatile implementate:
-calcul nota de plata pentru fiecare comanda
-am calculat pt fiecare comanda timpul total de pregatire si, ulterior, am sortat comenzile crescator dupa timpul
-de preparare pt eficientizarea servirii si am implementat o functie care majoreaza salariul ospatarilor din 2 in 2 ani, plecand de la un
+>am calcul nota de plata pentru fiecare comanda
+>am calculat prentru fiecare comanda timpul total de pregatire
+>am sortat comenzile crescator dupa timpulde pregatire pentru eficientizarea servirii
+>am implementat o functie care majoreaza salariul ospatarilor din 2 in 2 ani, plecand de la un
 salariu de baza de 2500 de lei, salariul afisat fiind cel final(dupa majorarea aferenta vechimii)
 */

@@ -24,7 +24,9 @@ std::ostream& operator<<(std::ostream& os, const Masa& ms) {
         os << "Zona: " << ms.zona << ", Numar masa: " << ms.nr_masa << ", Numar locuri: " << ms.nr_locuri<<"\n";
         return os;
     }
-
+int Masa::get_masa(){
+        return nr_masa;
+        }
 Preparat::Preparat (){
     //std::cout<<"Constructor fara parametrii Preparat\n";
 }
@@ -36,14 +38,20 @@ std::ostream& operator<<(std::ostream& os, const Preparat& prep) {
         return os;
 }
 
+double Preparat::get_pret(){
+         return pret;
+     }
 
+int Preparat::get_timppreparare(){
+         return timp_preparare;
+     }
 Comanda::Comanda()
 {
     //std::cout<<"Constructor fara parametrii Comanda\n";
 }
 
 std::ostream& operator<<(std::ostream& os, Comanda& cmd) {
-       os << "ID comanda: " << cmd.ID_COMANDA << " Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<", TIMP: "<<cmd.timptotalprep<<"\n\n";
+       os << "ID comanda: " << cmd.ID_COMANDA << " Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<", TIMP: "<<cmd.timptotalprep<<" minute\n\n";
 
        for (const auto &prep: cmd.preparate_comandate)
             os <<">"<< prep << " \n";
@@ -60,23 +68,28 @@ std::ostream& operator<<(std::ostream& os, Ospatar& osp) {
        os << "Nume: " << osp.nume <<  ", Vechime: " <<osp.vechime<<", Salariu: " << osp.salariu <<", Comanda: "<<osp.cmd.get_id()<<"\n";
         return os;
     }
-
-double Comanda::notadeplata(std::vector<Preparat> preparate_comandate_)
-    {
+int Comanda::get_id(){
+        return ID_COMANDA;
+        }
+void Comanda::set_timp(){
+    timptotalprep=timptotal(preparate_comandate);
+    }
+int Comanda::get_timp(){
+    return timptotalprep;
+    }
+double Comanda::notadeplata(std::vector<Preparat> preparate_comandate_){
        double total_plata=0;
        for(unsigned int i=0;i<preparate_comandate_.size();i++)
           total_plata+=preparate_comandate_[i].get_pret();
         return total_plata;
     }
-int Comanda::timptotal(std::vector<Preparat> preparate_comandate_)
-    {
+int Comanda::timptotal(std::vector<Preparat> preparate_comandate_){
        int timp_total=0;
        for(unsigned int i=0;i<preparate_comandate_.size();i++)
           timp_total+=preparate_comandate_[i].get_timppreparare();
        return timp_total;
     }
-double Ospatar::salariumajorat()
-    {
+double Ospatar::salariumajorat(){
         if (vechime>=2)
         {
             int majorare=0;
