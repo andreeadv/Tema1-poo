@@ -77,9 +77,9 @@ int Comanda::timptotal(std::vector<Preparat> preparate_comandate)
     }
 double Ospatar::salariumajorat()
     {
-        int majorare=0;
         if (vechime>=2)
         {
+            int majorare=0;
             int nrmajorari=vechime/2;
             majorare+=nrmajorari*0.25*salariu;// se majoreaza cu 25% din 2 in 2 ani
             salariu+=majorare;
@@ -88,4 +88,3 @@ double Ospatar::salariumajorat()
         else
             return 0;
     }
-
