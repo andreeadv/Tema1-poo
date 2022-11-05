@@ -2,7 +2,7 @@
 
 ### Tema 0
 
-- [ ] Restaurant
+- [ ] Restaurant.
 - [ ] Scurtă descriere a temei alese, ce v-ați propus să implementați
 
 ## Tema 1
