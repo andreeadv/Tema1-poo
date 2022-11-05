@@ -41,26 +41,51 @@ Comanda::Comanda()
 {
     //std::cout<<"Constructor fara parametrii Comanda\n";
 }
-///explicatie??
+
 std::ostream& operator<<(std::ostream& os, Comanda& cmd) {
-       os << "ID comanda: " << cmd.ID_COMANDA << " Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<"\n\n";
+       os << "ID comanda: " << cmd.ID_COMANDA << " Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<", TIMP: "<<cmd.timptotalprep<<"\n\n";
 
        for (const auto &prep: cmd.preparate_comandate)
             os <<">"<< prep << " \n";
-            /**
-            for(const auto& stud : vec2) {
-                std::cout << stud;
-             }*/
        return os;
     }
 
 Ospatar::Ospatar(){
     //std::cout<<"Constructor de initializare fara parametrii ospatar\n";
 }
-Ospatar::Ospatar(const std::string& nume_, double salariu_, const Comanda &cmd_) : nume{nume_}, salariu{salariu_}, cmd{cmd_} {
+Ospatar::Ospatar(const std::string& nume_,int vechime_, double salariu_, const Comanda &cmd_) : nume{nume_},vechime{vechime_}, salariu{salariu_}, cmd{cmd_} {
         //std::cout << "Constructor de initializare cu parametrii Ospatar\n";
     }
 std::ostream& operator<<(std::ostream& os, Ospatar& osp) {
-       os << "Nume: " << osp.nume << ", Salariu: " << osp.salariu <<", Comanda: "<<osp.cmd.get_id()<<"\n";
+       os << "Nume: " << osp.nume <<  ", Vechime: " <<osp.vechime<<", Salariu: " << osp.salariu <<", Comanda: "<<osp.cmd.get_id()<<"\n";
         return os;
     }
+
+double Comanda::notadeplata(std::vector<Preparat> preparate_comandate)
+    {
+       double total_plata=0;
+       for(unsigned int i=0;i<preparate_comandate.size();i++)
+          total_plata+=preparate_comandate[i].get_pret();
+        return total_plata;
+    }
+int Comanda::timptotal(std::vector<Preparat> preparate_comandate)
+    {
+       int timp_total=0;
+       for(unsigned int i=0;i<preparate_comandate.size();i++)
+          timp_total+=preparate_comandate[i].get_timppreparare();
+       return timp_total;
+    }
+double Ospatar::salariumajorat()
+    {
+        int majorare=0;
+        if (vechime>=2)
+        {
+            int nrmajorari=vechime/2;
+            majorare+=nrmajorari*0.25*salariu;// se majoreaza cu 25% din 2 in 2 ani
+            salariu+=majorare;
+            return majorare;
+        }
+        else
+            return 0;
+    }
+
