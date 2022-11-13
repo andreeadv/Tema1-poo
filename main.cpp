@@ -4,9 +4,7 @@
 #include<vector>
 #include <algorithm>
 
-bool cmp( Comanda &a,  Comanda &b){
-    return a.get_timp()<b.get_timp();//pt fals se face swap
-}
+
 int main()
 {
     std::cout<<" MESE: \n";
@@ -43,7 +41,7 @@ int main()
     //afisare nota de plata pt comanda c1
     std::cout<<"Nota de plata pentru comanda C2: "<< c2.notadeplata(preparate_comandate2)<<" lei \n";
     //afisare nota de plata pt comanda c3
-    std::cout<<"Nota de plata pentru comanda C3: "<< c3.notadeplata(preparate_comandate3)<<" lei \n";
+    std::cout<<"Nota de plata pentru comanda C3: "<< c3.notadeplata(preparate_comandate3)<<" lei \n\n";
 
 
     c1.set_timp();
@@ -52,7 +50,7 @@ int main()
 
     std::cout<<"TIMP C1: "<<c1.get_timp()<<"\n";
     std::cout<<"TIMP C2: "<<c2.get_timp()<<"\n";
-    std::cout<<"TIMP C3: "<<c3.get_timp()<<"\n";
+    std::cout<<"TIMP C3: "<<c3.get_timp()<<"\n\n";
 
     //odonare comenzi crescator dupa timpul total de preparare
     std:: vector<Comanda>comenzi;
@@ -61,7 +59,10 @@ int main()
     comenzi.push_back(c3);
 
     //odonare comenzi crescator dupa timpul total de pregatire
-    std::sort(comenzi.begin(),comenzi.end(),&cmp);
+    std::sort(comenzi.begin(),comenzi.end(),[](const Comanda & a, const Comanda & b) -> bool{
+    return a.get_timp()<b.get_timp();//pentru fals se face swap
+    });
+
     std::cout<<"COMENZI SORTATE DUPA TIMPUL DE PRGATIRE\n";
     for(unsigned int i=0;i<comenzi.size();i++) {
         std::cout << comenzi[i];
@@ -83,7 +84,7 @@ int main()
 functionalitatile implementate:
 >am calcul nota de plata pentru fiecare comanda
 >am calculat prentru fiecare comanda timpul total de pregatire
->am sortat comenzile crescator dupa timpulde pregatire pentru eficientizarea servirii
+>am sortat comenzile crescator dupa timpul de pregatire pentru eficientizarea servirii
 >am implementat o functie care majoreaza salariul ospatarilor din 2 in 2 ani, plecand de la un
 salariu de baza de 2500 de lei, salariul afisat fiind cel final(dupa majorarea aferenta vechimii)
 */

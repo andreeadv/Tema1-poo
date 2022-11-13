@@ -19,7 +19,7 @@ class Masa{
     Masa& operator=(const Masa& other);
 
     ~Masa();
-    int get_masa();
+    int get_masa()const;
     friend std::ostream& operator<<(std::ostream& os, const Masa& ms) ;
 
 };
@@ -35,8 +35,8 @@ public:
      Preparat(const std::string& nume_preparat_, int gramaj_, double pret_, int timp_preparare_);
 
      friend std::ostream& operator<<(std::ostream& os, const Preparat& prep);
-     double get_pret();
-     int get_timppreparare();
+     double get_pret()const;
+     int get_timppreparare()const;
 };
 
 class Comanda{
@@ -50,14 +50,14 @@ public:
     Comanda();
     Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}
     {}
-    int get_id();
+    int get_id()const;
     friend std::ostream& operator<<(std::ostream& os, Comanda& cmd);
     //functie care sa calculeze nota de plata(pretul total al produselor comandate)
     double notadeplata(std::vector<Preparat> preparate_comandate_);
     //calculeaza timpul de pregatire al unei comenzi(suma timpurilor de preparare a preparatelor comandate)
     int timptotal(std::vector<Preparat> preparate_comandate_);
     void set_timp();
-    int get_timp();
+    int get_timp()const;
 };
 
 class Ospatar{
@@ -74,6 +74,5 @@ public:
     ///functie pt majorare salariu cu 25% ospatarilor din 2 in 2 ani
      double salariumajorat();
 };
-
 
 #endif

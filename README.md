@@ -1,9 +1,7 @@
-# OOP Template
+# Restaurant
 
-### Tema 0
-
-- [ ] Restaurant.
-- [ ] Scurtă descriere a temei alese, ce v-ați propus să implementați
+- [ ] Proiectul are ca scop simularea administrarii unui local in care atat personalul, cat si clientii desfasoara activitati specifice, cum ar fi comandarea unor anumite preparate, asezarea la mese in functie de preferinte(numar persoane, zona: interior/exterior) sau chiar organizarea task-urilor angajatilor pentru eficientizarea activitatii.
+ 
 
 ## Tema 1
 

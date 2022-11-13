@@ -24,7 +24,7 @@ std::ostream& operator<<(std::ostream& os, const Masa& ms) {
         os << "Zona: " << ms.zona << ", Numar masa: " << ms.nr_masa << ", Numar locuri: " << ms.nr_locuri<<"\n";
         return os;
     }
-int Masa::get_masa(){
+int Masa::get_masa()const{
         return nr_masa;
         }
 Preparat::Preparat (){
@@ -38,11 +38,11 @@ std::ostream& operator<<(std::ostream& os, const Preparat& prep) {
         return os;
 }
 
-double Preparat::get_pret(){
+double Preparat::get_pret()const{
          return pret;
      }
 
-int Preparat::get_timppreparare(){
+int Preparat::get_timppreparare()const{
          return timp_preparare;
      }
 Comanda::Comanda()
@@ -68,36 +68,34 @@ std::ostream& operator<<(std::ostream& os, Ospatar& osp) {
        os << "Nume: " << osp.nume <<  ", Vechime: " <<osp.vechime<<", Salariu: " << osp.salariu <<", Comanda: "<<osp.cmd.get_id()<<"\n";
         return os;
     }
-int Comanda::get_id(){
+int Comanda::get_id()const{
         return ID_COMANDA;
         }
 void Comanda::set_timp(){
     timptotalprep=timptotal(preparate_comandate);
     }
-int Comanda::get_timp(){
+int Comanda::get_timp()const{
     return timptotalprep;
     }
 double Comanda::notadeplata(std::vector<Preparat> preparate_comandate_){
        double total_plata=0;
-       for(unsigned int i=0;i<preparate_comandate_.size();i++)
+       for(auto i = 0u;i<preparate_comandate_.size();i++)
           total_plata+=preparate_comandate_[i].get_pret();
         return total_plata;
     }
 int Comanda::timptotal(std::vector<Preparat> preparate_comandate_){
        int timp_total=0;
-       for(unsigned int i=0;i<preparate_comandate_.size();i++)
+       for(auto i = 0u;i<preparate_comandate_.size();i++)
           timp_total+=preparate_comandate_[i].get_timppreparare();
        return timp_total;
     }
 double Ospatar::salariumajorat(){
-        if (vechime>=2)
-        {
-            int majorare=0;
-            int nrmajorari=vechime/2;
-            majorare+=nrmajorari*0.25*salariu;// se majoreaza cu 25% din 2 in 2 ani
-            salariu+=majorare;
-            return majorare;
-        }
-        else
+        if (vechime<2)
             return 0;
+        int majorare=0;
+        int nrmajorari=vechime/2;
+        majorare+=nrmajorari*0.25*salariu;// se majoreaza cu 25% din 2 in 2 ani
+        salariu+=majorare;
+        return majorare;
+
     }
