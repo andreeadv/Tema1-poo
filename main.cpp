@@ -1,8 +1,11 @@
 #include <iostream>
 #include<string>
-#include "clase.h"
 #include<vector>
 #include <algorithm>
+#include "masa.h"
+#include "preparat.h"
+#include "comanda.h"
+#include "ospatar.h"
 
 
 int main()
@@ -79,12 +82,3 @@ int main()
 
     return 0;
 }
-///notes
-/*
-functionalitatile implementate:
->am calcul nota de plata pentru fiecare comanda
->am calculat prentru fiecare comanda timpul total de pregatire
->am sortat comenzile crescator dupa timpul de pregatire pentru eficientizarea servirii
->am implementat o functie care majoreaza salariul ospatarilor din 2 in 2 ani, plecand de la un
-salariu de baza de 2500 de lei, salariul afisat fiind cel final(dupa majorarea aferenta vechimii)
-*/
