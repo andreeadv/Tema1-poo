@@ -28,12 +28,13 @@ public:
     //Ospatar(const Ospatar &other);
     //Ospatar& operator =(const Ospatar &other);
 
-     void set_salariu(double sal);
+     //void set_salariu(double sal);
+     //double get_salariu()const;
      //un ospatar poate sa lucreze doar pe o singur schimb
      //activitatea la ospatari se refera la bonusul pe care il primesc in functie de tura pe care lucreaza
      //pt tura de noapte ospatarul primeste un bonus de 25%
      void activitate() override;
-     double get_salariu()const;
+
      static int get_start();//salariul de baza la care se adauga bonusurile financiare ale ospatarilor este de 2500lei
      std::string get_nume()const;
       ///functie pt majorare salariu cu 30% ospatarilor din 2 in 2 ani

@@ -20,12 +20,13 @@ std::shared_ptr<Angajat>Ospatar:: clone() const {
         return std::make_shared<Ospatar>(*this); }
 
 
-void Ospatar::set_salariu(double sal){salariu=sal;}
+
 
 void Ospatar::activitate(){
-      double bonus=0;
+
       if(schimb==3)
       {
+          double bonus=0;
           std::cout<<nume<<" lucreaza tura de noapte => ";
           bonus=0.25*salariu;
           std::cout<<"Bonus ore de noapte: "<<bonus<<"lei\n\n";
@@ -41,9 +42,9 @@ void Ospatar::activitate(){
       }
 
     }
-
-double Ospatar::get_salariu()const{return salariu;}
-
+//void Ospatar::set_salariu(double sal){salariu=sal;}
+//double Ospatar::get_salariu()const{return salariu;}
+int Ospatar:: get_start(){ return start_salariu;}
 
 void Ospatar::afisare(std::ostream &os) const {
         os << "->Vechime: " << vechime << " ani\n"
@@ -53,7 +54,7 @@ void Ospatar::afisare(std::ostream &os) const {
     }
 int Ospatar::start_salariu=2500;
 
-int Ospatar:: get_start(){ return start_salariu;}
+
 
 std::string Ospatar::get_nume()const{return nume;}
 

@@ -24,7 +24,7 @@ protected:
 public:
 
     Angajat();
-    Angajat(const std::string& nume_,const  std::string& email_, const std::string localitate_,int varsta_);
+    Angajat(const std::string& nume_,const  std::string& email_, const std::string& localitate_,int varsta_);
     friend std::ostream &operator<<(std::ostream &os, const Angajat &angajat) ;
     virtual ~Angajat();
     virtual std::shared_ptr<Angajat> clone() const = 0;

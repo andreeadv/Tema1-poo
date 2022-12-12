@@ -1,7 +1,5 @@
 #include "angajat.h"
 
-
-
 void Angajat::afisare(std::ostream &) const {}
 
  Angajat::Angajat(const Angajat &other):nume{other.nume}, email{other.email}, localitate{other.localitate},varsta{other.varsta}{
@@ -18,7 +16,7 @@ Angajat &Angajat::operator=(const Angajat &other){
     }
 Angajat::Angajat()=default;
 
-Angajat:: Angajat(const std::string& nume_,const  std::string& email_, const std::string localitate_,int varsta_):nume{nume_}, email{email_}, localitate{localitate_},varsta{varsta_}{
+Angajat:: Angajat(const std::string& nume_,const  std::string& email_, const std::string& localitate_,int varsta_):nume{nume_}, email{email_}, localitate{localitate_},varsta{varsta_}{
         //std::cout<<"constr de initializare\n";
     }
 
