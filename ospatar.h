@@ -21,7 +21,7 @@ private:
 public:
 
     Ospatar();
-    Ospatar(const std::string& nume,const  std::string& email, const std::string localitate,int varsta,int vechime_, double salariu_,const Comanda &cmd_, int schimb_);
+    Ospatar(const std::string& nume,const  std::string& email, const std::string& localitate,int varsta,int vechime_, double salariu_,const Comanda &cmd_, int schimb_);
    // friend std::ostream& operator<<(std::ostream& os, Ospatar& osp);//necomentat e eroare
     std::shared_ptr<Angajat> clone() const override;
 

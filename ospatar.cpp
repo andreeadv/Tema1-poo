@@ -5,7 +5,7 @@ Ospatar::Ospatar(){
     //std::cout<<"Constructor de initializare fara parametrii ospatar\n";
 }
 
-Ospatar::Ospatar(const std::string& nume,const  std::string& email, const std::string localitate,int varsta,int vechime_, double salariu_,const Comanda &cmd_, int schimb_):
+Ospatar::Ospatar(const std::string& nume,const  std::string& email, const std::string& localitate,int varsta,int vechime_, double salariu_,const Comanda &cmd_, int schimb_):
                   Angajat(nume, email, localitate, varsta),vechime(vechime_),salariu(salariu_),cmd(cmd_),schimb(schimb_){
                  //std::cout << "Constructor de initializare cu parametrii Ospatar\n";
                 }

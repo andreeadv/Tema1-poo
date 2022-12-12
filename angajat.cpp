@@ -14,7 +14,9 @@ Angajat &Angajat::operator=(const Angajat &other){
         //std::cout << "operator= copiere\n";
         return *this;
     }
-Angajat::Angajat()=default;
+Angajat::Angajat(){
+    //std::cout<<"Constructor fara parametrii \n";
+}
 
 Angajat:: Angajat(const std::string& nume_,const  std::string& email_, const std::string& localitate_,int varsta_):nume{nume_}, email{email_}, localitate{localitate_},varsta{varsta_}{
         //std::cout<<"constr de initializare\n";
