@@ -2,10 +2,12 @@
 #include<string>
 #include<vector>
 #include <algorithm>
+#include<utility>
 #include "masa.h"
 #include "preparat.h"
 #include "comanda.h"
 #include "ospatar.h"
+#include "angajat.h"
 
 
 int main()
@@ -70,15 +72,37 @@ int main()
     for(unsigned int i=0;i<comenzi.size();i++) {
         std::cout << comenzi[i];
     }
+//t2
+    std::cout<<"***************************\n\n OSPATARI: \n\n";
 
-    std::cout<<"***************************\n OSPATARI: \n";
+    Ospatar o1("Anton Marian","a_marian@gmail.com","Bucuresti",20,5,2500,c1,3);
+    Ospatar o2("Micu Adina","m_adina@gmail.com","Bucuresti",18,1,2500,c2,1);
+    Ospatar o3("Craciun Alin","c_alin@gmial.com","Bucuresti",30,6,2500,c3,2);
 
-    Ospatar o1("Marian",6,2500,c1);
-    Ospatar o2("Adina",1,2500,c2);
 
-    //din 2 in 2 ani salariul ospatarilor se majoreaza cu 25%
-    std::cout<<o1<<"Majorare: "<<o1.salariumajorat()<<" lei\n\n";//salariul afisat este cel actualizat,majorarile adaugandu-se la salariul de baza(2500 lei)
-    std::cout<<o2<<"Majorare: "<<o2.salariumajorat()<<" lei\n\n";
+    std::cout<<"----------Detalii initiale----------\n";
+
+    std::cout<<o1<<"\n";
+    std::cout<<o2<<"\n";
+    std::cout<<o3<<"\n";
+
+    std::cout<<"----------Raport bonusuri financiare---------\n\n";
+
+    std::cout<<o1.get_nume()<<"\n"<<"Majorare de vechime:"<<o1.salariumajorat()<<"lei\n";
+    o1.activitate();//bonusul pt schimbul de noapte se adauga la salariul curent, nu la salariul de baza
+
+    std::cout<<o2.get_nume()<<"\n"<<"Majorare de vechime:"<<o2.salariumajorat()<<"\n";
+    o2.activitate();
+
+    std::cout<<o3.get_nume()<<"\n"<<"Majorare de vechime:"<<o3.salariumajorat()<<"\n";
+    o3.activitate();
+
+
+    std::cout<<"----------Detalii finale----------\n";
+
+    std::cout<<o1<<"\n";
+    std::cout<<o2<<"\n";
+    std::cout<<o3<<"\n";
 
     return 0;
 }

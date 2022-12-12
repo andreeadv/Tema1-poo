@@ -41,7 +41,7 @@ endif()
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml when changing name here
-add_executable(${PROJECT_NAME} main.cpp clase.cpp)
+add_executable(${PROJECT_NAME} main.cpp clase.cpp masa.cpp masa.h preparat.cpp preparat.h comanda.cpp comanda.h ospatar.cpp ospatar.h angajat.cpp angajat.h)
 
 ###############################################################################
 
