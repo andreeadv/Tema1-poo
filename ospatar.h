@@ -13,31 +13,25 @@ private:
      double salariu;
      Comanda cmd;
      int schimb;//sch 1, 2, 3
-     static int start_salariu;
-
+     static int start_salariu;//salariul de baza pentru ospatari, din care se calculeaza si bonusurile financiare
 
      void afisare(std::ostream &os) const override;
 
 public:
 
     Ospatar();
-    Ospatar(const std::string& nume,const  std::string& email, const std::string& localitate,int varsta,int vechime_, double salariu_,const Comanda &cmd_, int schimb_);
-   // friend std::ostream& operator<<(std::ostream& os, Ospatar& osp);//necomentat e eroare
+    explicit Ospatar(const std::string& nume,const  std::string& email, const std::string& localitate,int varsta,int vechime_, double salariu_,const Comanda &cmd_, int schimb_);
+
     std::shared_ptr<Angajat> clone() const override;
-
-    //Ospatar(const Ospatar &other);
-    //Ospatar& operator =(const Ospatar &other);
-
      //void set_salariu(double sal);
      //double get_salariu()const;
-     //un ospatar poate sa lucreze doar pe o singur schimb
+     //un ospatar poate sa lucreze doar pe un singur schimb
      //activitatea la ospatari se refera la bonusul pe care il primesc in functie de tura pe care lucreaza
-     //pt tura de noapte ospatarul primeste un bonus de 25%
+     //pt tura de noapte ospatarul primeste un bonus de 25% din salariul de start
      void activitate() override;
-
      static int get_start();//salariul de baza la care se adauga bonusurile financiare ale ospatarilor este de 2500lei
      std::string get_nume()const;
-      ///functie pt majorare salariu cu 30% ospatarilor din 2 in 2 ani
+     ///functie pt majorare salariu cu 30% ospatarilor din 2 in 2 ani
      double salariumajorat();//majorarea se face la salariu de start(salariul la angajare al unui ospatar)
 
 };

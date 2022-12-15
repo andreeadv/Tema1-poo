@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include<memory>
+#include <utility>
 
 //angajat va fi clasa de baza pt ospatar,dj,bucatar etc.
 class Angajat{
@@ -24,11 +25,11 @@ protected:
 public:
 
     Angajat();
-    Angajat(const std::string& nume_,const  std::string& email_, const std::string& localitate_,int varsta_);
+    explicit Angajat(std::string nume_,std::string email_,std::string localitate_,int varsta_);
     friend std::ostream &operator<<(std::ostream &os, const Angajat &angajat) ;
-    virtual ~Angajat();
     virtual std::shared_ptr<Angajat> clone() const = 0;
     virtual void activitate();
+    virtual ~Angajat();
 
 };
 #endif

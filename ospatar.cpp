@@ -11,11 +11,6 @@ Ospatar::Ospatar(const std::string& nume,const  std::string& email, const std::s
                 }
 
 
-//std::ostream& operator<<(std::ostream& os,const Ospatar& osp) {
-//       os << "Nume: " << osp.nume <<  ", Vechime: " <<osp.vechime<<", Salariu: " << osp.salariu <<", Comanda: "<<osp.cmd.get_id()<<"\n";
-//        return os;
-//    }
-
 std::shared_ptr<Angajat>Ospatar:: clone() const {
         return std::make_shared<Ospatar>(*this); }
 
@@ -23,12 +18,11 @@ std::shared_ptr<Angajat>Ospatar:: clone() const {
 
 
 void Ospatar::activitate(){
-
       if(schimb==3)
       {
           double bonus=0;
+          bonus=0.25*get_start();//get_start();daca am get_start coincid bonusurile cu ce se afisarea cu apelarea bazei
           std::cout<<nume<<" lucreaza tura de noapte => ";
-          bonus=0.25*salariu;
           std::cout<<"Bonus ore de noapte: "<<bonus<<"lei\n\n";
           salariu+=bonus;
       }
@@ -38,7 +32,7 @@ void Ospatar::activitate(){
       }
       if(schimb==2)
       {
-          std::cout<<nume<<" lucreaza tura de dupa-amiaza=> nu primeste bonus de noapte\n\n";
+          std::cout<<nume<<" lucreaza tura de dupa-amiaza => nu primeste bonus de noapte\n\n";
       }
 
     }

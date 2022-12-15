@@ -18,7 +18,7 @@ Angajat::Angajat(){
     //std::cout<<"Constructor fara parametrii \n";
 }
 
-Angajat:: Angajat(const std::string& nume_,const  std::string& email_, const std::string& localitate_,int varsta_):nume{nume_}, email{email_}, localitate{localitate_},varsta{varsta_}{
+Angajat:: Angajat(std::string nume_,std::string email_, std::string localitate_,int varsta_):nume{std::move(nume_)}, email{std::move(email_)}, localitate{std::move(localitate_)},varsta{varsta_}{
         //std::cout<<"constr de initializare\n";
     }
 

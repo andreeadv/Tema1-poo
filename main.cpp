@@ -8,6 +8,9 @@
 #include "comanda.h"
 #include "ospatar.h"
 #include "angajat.h"
+#include "bucatar.h"
+#include "personal.h"
+#include "promoter.h"
 
 
 int main()
@@ -72,12 +75,15 @@ int main()
     for(unsigned int i=0;i<comenzi.size();i++) {
         std::cout << comenzi[i];
     }
-//t2
+//Tema 2
+
     std::cout<<"***************************\n\n OSPATARI: \n\n";
+    std::cout<<">Mentiuni \nOspatarii primesc bonusuri financiare ce se calculeaza din suma de baza de "<<Ospatar::get_start()<<" lei\n";
 
     Ospatar o1("Anton Marian","a_marian@gmail.com","Bucuresti",20,5,2500,c1,3);
     Ospatar o2("Micu Adina","m_adina@gmail.com","Bucuresti",18,1,2500,c2,1);
     Ospatar o3("Craciun Alin","c_alin@gmial.com","Bucuresti",30,6,2500,c3,2);
+
 
 
     std::cout<<"----------Detalii initiale----------\n";
@@ -103,6 +109,57 @@ int main()
     std::cout<<o1<<"\n";
     std::cout<<o2<<"\n";
     std::cout<<o3<<"\n";
+
+
+    std::cout<<"***************************\n\n BUCATARI: \n\n";
+
+    Bucatar b1("Ilie Mihai","i_mihai2000@gmail.com","Bucuresti",40,"Pizzar",1,"REVELION");
+    Bucatar b2("Popa Mihaela","p_miha23@gmail.com","Bucuresti",25,"Patiser",0,"MAJORAT");
+
+
+    std::cout<<"DETALII: \n\n";
+
+    std::cout<<b1<<"\n";
+    std::cout<<b2<<"\n";
+
+    std::cout<<"ROLURILE BUCATARILOR: \n\n";
+
+    b1.activitate();
+    std::cout<<"---------------------\n";
+    b2.activitate();
+
+
+    std::cout<<"\n\n***************************\n\n PROMOTERI: \n\n";
+    std::cout<<">Mentiuni \nPromoterii primesc comisionul de "<<Promoter::get_comision()<<"lei doar daca indeplinesc targetul de "<<Promoter::get_prag()<<" de anunturi distribuite\n";
+
+    Promoter pr1("Laur Mihnea","l_mihnea@gmail.com","Ploiesti",19,40,0,100,10);//nu a indeplinit targetul=>nu are comision
+    Promoter pr2("Dobre Mihaela","d_mihaela@gmail.com","Ploiesti",21,80,0,200,10);
+    std::cout<<"\n---------Date initiale---------\n";
+    std::cout<<pr1<<"\n";
+    std::cout<<pr2<<"\n";
+
+    std::cout<<"\n---------Status performante---------\n";
+    pr1.activitate();
+    pr2.activitate();
+
+    std::cout<<"\n---------Date finale--------\n";//evidentierea sumei pe care promoterul o primeste la sfarsitul lunii
+    std::cout<<pr1<<"\n";
+    std::cout<<pr2<<"\n";
+
+
+
+    std::cout<<"\n---RAPORT ACTIVITATE AL INTREGULUI PERSONAL---\n\n";
+    auto ang_ = {o1.clone(), o2.clone(),o3.clone(), b1.clone(), b2.clone(),pr1.clone(),pr2.clone()};//vectorul contine toti angajatii restaurantului
+    Personal pers{ang_};
+    pers.raport_activitate();
+    //afisarea tuturor angajatilor
+//    for( const auto &angajat: ang_)
+//            std::cout << *angajat<< "\n";
+
+
+
+
+
 
     return 0;
 }
