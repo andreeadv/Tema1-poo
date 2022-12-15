@@ -14,7 +14,7 @@ class Personal{
 
 public:
      Personal();
-     Personal(const std::vector<std::shared_ptr<Angajat>> &angajati_);
+     explicit Personal(const std::vector<std::shared_ptr<Angajat>> &angajati_);
 
      void raport_activitate()const;
      //suprascris cc/op= pentru copieri/atribuiri corecte
