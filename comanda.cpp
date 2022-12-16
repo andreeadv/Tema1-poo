@@ -14,9 +14,9 @@ std::ostream& operator<<(std::ostream& os, Comanda& cmd) {
             os <<">"<< prep << " \n";
        return os;
     }
-int Comanda::get_id()const{
-        return ID_COMANDA;
-        }
+//int Comanda::get_id()const{
+//        return ID_COMANDA;
+//        }
 void Comanda::set_timp(){
     timptotalprep=timptotal(preparate_comandate);
     if(timptotalprep>100)
