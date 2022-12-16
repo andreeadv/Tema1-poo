@@ -1,6 +1,7 @@
 #ifndef EXCEPTII_H
 #define EXCEPTII_H
 #include <stdexcept>
+#include <string>
 
 class eroare_aplicatie:public std::runtime_error {
     using std::runtime_error::runtime_error;
