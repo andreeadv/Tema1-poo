@@ -11,7 +11,6 @@ private:
 
      int vechime;//in ani
      double salariu;
-     Comanda cmd;
      int schimb;//sch 1, 2, 3
      static int start_salariu;//salariul de baza pentru ospatari, din care se calculeaza si bonusurile financiare
 
@@ -20,7 +19,7 @@ private:
 public:
 
     Ospatar();
-    explicit Ospatar(const std::string& nume,const  std::string& email, const std::string& localitate,int varsta,int vechime_, double salariu_,const Comanda &cmd_, int schimb_);
+    Ospatar(const std::string& nume,const  std::string& email, const std::string& localitate,int varsta,int vechime_, double salariu_, int schimb_);
 
     std::shared_ptr<Angajat> clone() const override;
      //void set_salariu(double sal);

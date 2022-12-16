@@ -5,8 +5,8 @@ Ospatar::Ospatar(){
     //std::cout<<"Constructor de initializare fara parametrii ospatar\n";
 }
 
-Ospatar::Ospatar(const std::string& nume,const  std::string& email, const std::string& localitate,int varsta,int vechime_, double salariu_,const Comanda &cmd_, int schimb_):
-                  Angajat(nume, email, localitate, varsta),vechime(vechime_),salariu(salariu_),cmd(cmd_),schimb(schimb_){
+Ospatar::Ospatar(const std::string& nume,const  std::string& email, const std::string& localitate,int varsta,int vechime_, double salariu_, int schimb_):
+                  Angajat(nume, email, localitate, varsta),vechime(vechime_),salariu(salariu_),schimb(schimb_){
                  //std::cout << "Constructor de initializare cu parametrii Ospatar\n";
                 }
 
@@ -43,7 +43,6 @@ int Ospatar:: get_start(){ return start_salariu;}
 void Ospatar::afisare(std::ostream &os) const {
         os << "->Vechime: " << vechime << " ani\n"
            << "->Salariu: " << salariu<< " lei\n"
-           << "->Comanda: " << cmd.get_id() << "\n"
            << "->Schimb: " << schimb << "\n";
     }
 int Ospatar::start_salariu=2500;
