@@ -24,7 +24,7 @@ std::shared_ptr<Angajat>Promoter:: clone() const {
 }
 
 
-int Promoter::prag_comision=200;//daca promoterul distribuie peste 200 de anuntri primeste un comision de 600 lei
+int Promoter::prag_comision=200;//daca promoterul distribuie peste 200 de anuntri primeste un comision
 int Promoter::comision=600;
 int Promoter::get_prag(){return prag_comision;}
 int Promoter::get_comision(){return comision;}
@@ -32,16 +32,22 @@ int Promoter::get_comision(){return comision;}
 
 void Promoter::activitate(){
 
-   if(anunturi_distribuite>=get_prag())
-   {
+   if(anunturi_distribuite<Promoter::get_prag())
+      std::cout<<nume<<" nu a indeplinit targetul"<<"!\n";
+   else
+      {
        std::cout<<nume<<" a indeplinit targetul"<<"!\n";
        //promoterul primeste comisionul doar daca a indeplinit targetul in intregime
        plata_finala+=get_comision();//la plata finala se adauga comisionul
    }
-   else
-       std::cout<<nume<<"nu a indeplinit targetul"<<"!\n";
-
    plata_finala=plata_finala+(ore_lucrate*plata_ora);
 
 }
+
+void Promoter:: depasire_target(){
+     if(anunturi_distribuite>prag_comision)
+        plata_finala+=((anunturi_distribuite-prag_comision)*plata_ora);
+
+}
+
 

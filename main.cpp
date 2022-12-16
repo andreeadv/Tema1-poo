@@ -176,10 +176,10 @@ try{
 
     std::cout<<">Mentiuni \nPromoterii primesc comisionul de "<<Promoter::get_comision()<<"lei doar daca indeplinesc targetul de "<<Promoter::get_prag()<<" de anunturi distribuite\n";
 
-    Promoter pr1("Laur Mihnea","l_mihnea@gmail.com","Ploiesti",19,40,0,100,10);//nu a indeplinit targetul=>nu primeste comisionul
+    Promoter pr1("Laur Mihnea","l_mihnea@gmail.com","Ploiesti",19,40,0,100,10);//nu a indeplinit targetul=>nu are comision
     Promoter pr2("Dobre Mihaela","d_mihaela@gmail.com","Pitesti",18,80,0,200,10);
     Promoter pr3("Ion Razvan","i_razvan@gmail.com","Buzau",21,100,0,210,10);
-    Promoter pr4("Mia Alina","mm_alina@gmail.com","Bucuresti",21,32,0,200,10);
+    Promoter pr4("Mia Alina","mm_alina@gmail.com","Bucuresti",21,32,0,150,10);
 
 
     std::cout<<"\n---------Date initiale---------\n";
@@ -188,11 +188,15 @@ try{
     std::cout<<pr3<<"\n";
     std::cout<<pr4<<"\n";
 
+
+
     std::cout<<"\n---------Status performante---------\n";
     pr1.activitate();
     pr2.activitate();
     pr3.activitate();
     pr4.activitate();
+
+    pr3.depasire_target();//plata_finala=100*10+600+(210-200)*10=1000+600+100=17000
 
     std::cout<<"\n---------Date finale--------\n";//evidentierea sumei pe care promoterul o primeste la sfarsitul lunii
     std::cout<<pr1<<"\n";
@@ -200,17 +204,17 @@ try{
     std::cout<<pr3<<"\n";
     std::cout<<pr4<<"\n";
 
+
     std::cout<<"\n---RAPORT ACTIVITATE AL INTREGULUI PERSONAL---\n\n";
 
     auto ang_ = {o1.clone(), o2.clone(),o3.clone(),o4.clone(),o5.clone(),o6.clone(),o7.clone(), b1.clone(), b2.clone(),b3.clone(),b4.clone(),pr1.clone(),pr2.clone(),pr3.clone(),pr4.clone()};//vectorul contine toti angajatii restaurantului
     Personal pers{ang_};
     pers.raport_activitate();
     //afisarea tuturor angajatilor
-    //for( const auto &angajat: ang_)
-        // std::cout << *angajat<< "\n";
+//    for( const auto &angajat: ang_)
+//         std::cout << *angajat<< "\n";
 
-    }
-
+}
     catch(eroare_angajat &error)
        {std::cout<<error.what()<<"\n";}
     catch(eroare_comanda &error)
