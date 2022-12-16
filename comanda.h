@@ -5,6 +5,7 @@
 #include <vector>
 #include "masa.h"
 #include "preparat.h"
+#include "exceptii.h"
 
 class Comanda{
     int ID_COMANDA;
@@ -15,8 +16,7 @@ class Comanda{
 
 public:
     Comanda();
-    Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}
-    {}
+    Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_, int timptotalprep_);
     int get_id()const;
     friend std::ostream& operator<<(std::ostream& os, Comanda& cmd);
     //functie care sa calculeze nota de plata(pretul total al produselor comandate)

@@ -5,6 +5,7 @@
 #include<memory>
 #include <utility>
 #include "angajat.h"
+#include "exceptii.h"
 
 class Promoter: public Angajat{
 //un promoter este platit/ora, nu are salariu fix
@@ -35,3 +36,4 @@ public:
 };
 
 #endif
+

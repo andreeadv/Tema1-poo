@@ -1,9 +1,14 @@
 #include "promoter.h"
 
+
 Promoter::Promoter(){}
 
 Promoter::Promoter(const std::string& nume,const  std::string& email, const std::string& localitate,int varsta,int ore_lucrate_,double plata_finala_,int anunturi_distribuite_,int plata_ora_):
-Angajat(nume, email, localitate, varsta),ore_lucrate(ore_lucrate_),plata_finala(plata_finala_),anunturi_distribuite(anunturi_distribuite_), plata_ora(plata_ora_){}
+Angajat(nume, email, localitate, varsta),ore_lucrate(ore_lucrate_),plata_finala(plata_finala_),anunturi_distribuite(anunturi_distribuite_), plata_ora(plata_ora_){
+
+    if(plata_ora<8)
+        throw eroare_plata("Promoter-ul trebuie sa fie platit cu cel putin 8lei/ora");
+}
 
 void Promoter::afisare(std::ostream &os) const {
 
@@ -15,7 +20,10 @@ void Promoter::afisare(std::ostream &os) const {
 
 
 std::shared_ptr<Angajat>Promoter:: clone() const {
-        return std::make_shared<Promoter>(*this); }
+        return std::make_shared<Promoter>(*this);
+}
+
+
 int Promoter::prag_comision=200;//daca promoterul distribuie peste 200 de anuntri primeste un comision
 int Promoter::comision=600;
 int Promoter::get_prag(){return prag_comision;}
@@ -36,3 +44,4 @@ void Promoter::activitate(){
    plata_finala=plata_finala+(ore_lucrate*plata_ora);
 
 }
+

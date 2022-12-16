@@ -1,5 +1,6 @@
 #include "angajat.h"
 
+
 void Angajat::afisare(std::ostream &) const {}
 
  Angajat::Angajat(const Angajat &other):nume{other.nume}, email{other.email}, localitate{other.localitate},varsta{other.varsta}{
@@ -20,6 +21,8 @@ Angajat::Angajat(){
 
 Angajat:: Angajat(std::string nume_,std::string email_, std::string localitate_,int varsta_):nume{std::move(nume_)}, email{std::move(email_)}, localitate{std::move(localitate_)},varsta{varsta_}{
         //std::cout<<"constr de initializare\n";
+        if(varsta<18)
+            throw eroare_angajat(nume +" nu are varsa minima de 18 ani!");
     }
 
 std::ostream &operator<<(std::ostream &os, const Angajat &angajat) {

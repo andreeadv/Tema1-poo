@@ -4,7 +4,9 @@ Comanda::Comanda()
 {
     //std::cout<<"Constructor fara parametrii Comanda\n";
 }
+Comanda::Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}{
 
+}
 std::ostream& operator<<(std::ostream& os, Comanda& cmd) {
        os << "ID comanda: " << cmd.ID_COMANDA << " Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<", TIMP: "<<cmd.timptotalprep<<" minute\n\n";
 
@@ -17,6 +19,8 @@ int Comanda::get_id()const{
         }
 void Comanda::set_timp(){
     timptotalprep=timptotal(preparate_comandate);
+    if(timptotalprep>100)
+        throw eroare_comanda("Comanda a depasit timpul maxim de preparare!");
     }
 int Comanda::get_timp()const{
     return timptotalprep;

@@ -4,6 +4,7 @@
 #include <string>
 #include<memory>
 #include <utility>
+#include "exceptii.h"
 
 //angajat va fi clasa de baza pt ospatar,dj,bucatar etc.
 class Angajat{
