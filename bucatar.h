@@ -9,7 +9,7 @@
 class Bucatar: public Angajat{
 
 private:
-     std::string specializare;//patiser,grill chef,pizzar
+     std::string specializare;//patiser,grill chef,pizzar,etc
      bool sef;//1 daca este bucatar sef, 0 daca nu
      std::string meniu_eveniment;//in cadrul restaurantului fiecarui bucatar ii este atribuit un anumit tip de meniu (ex:pt Nunta, Botez, Majorat, Revelion, etc)
 

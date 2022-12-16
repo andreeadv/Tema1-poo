@@ -12,7 +12,6 @@ Angajat &Angajat::operator=(const Angajat &other){
         email = other.email;
         localitate=other.localitate;
         varsta=other.varsta;
-        //std::cout << "operator= copiere\n";
         return *this;
     }
 Angajat::Angajat(){

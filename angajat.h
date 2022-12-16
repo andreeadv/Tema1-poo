@@ -15,7 +15,6 @@ private:
     std::string localitate;
     int varsta;
 
-//Poate nu toate derivatele adaugă atribute pe care să le afișeze, motiv pentru care nu facem funcția de afișare virtuală pură.
     virtual void afisare(std::ostream &) const;//functie apelata in op<<
 
 //constructorul de copiere si operator egal protected pentru a putea fi apelate de derivata

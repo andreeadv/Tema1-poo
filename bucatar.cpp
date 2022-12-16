@@ -11,7 +11,7 @@ void Bucatar::afisare(std::ostream &os) const {
         if (sef==1)
              os<< "Bucatar sef "<< " \n";
         else
-             os<<"Bucatar"<<"\n";
+             os<<"Bucatar "<<"\n";
         os<< "->Tip meniu eveniment: " << meniu_eveniment << "\n";
     }
 

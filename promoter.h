@@ -15,7 +15,7 @@ private:
      static int prag_comision;//promoterii primesc comisionul doar daca indeplinesc un anumit target
      static int comision;
      int ore_lucrate;//pe luna
-     double plata_finala;//"salariu" de la sfarsitul lunii, se actualizeaza in functie de numarul de ore lucrate
+     double plata_finala;//"salariu" de la sfarsitul lunii, depinde de numarul de ore lucrate
      int anunturi_distribuite;
      double plata_ora;
 

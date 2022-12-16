@@ -24,7 +24,7 @@ std::shared_ptr<Angajat>Promoter:: clone() const {
 }
 
 
-int Promoter::prag_comision=200;//daca promoterul distribuie peste 200 de anuntri primeste un comision
+int Promoter::prag_comision=200;//daca promoterul distribuie peste 200 de anuntri primeste un comision de 600 lei
 int Promoter::comision=600;
 int Promoter::get_prag(){return prag_comision;}
 int Promoter::get_comision(){return comision;}

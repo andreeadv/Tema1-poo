@@ -6,8 +6,6 @@ Personal:: Personal(const std::vector<std::shared_ptr<Angajat>> &angajati_){
              angajati.push_back(angajat->clone());
      }
 
-
-
 Personal::Personal(const Personal &other){
         for (const auto &angajat: other.angajati)
             angajati.push_back(angajat->clone());

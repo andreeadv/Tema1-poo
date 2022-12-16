@@ -5,7 +5,7 @@
 
 class Masa{
 
-     std::string zona;//restaurantul dispune de 2 zone,acestea fiind numite: interior, exterior
+     std::string zona;//restaurantul dispune de 2 zone: interior, exterior
      int nr_masa;
      int nr_locuri;
 

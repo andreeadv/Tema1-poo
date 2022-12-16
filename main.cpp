@@ -176,7 +176,7 @@ try{
 
     std::cout<<">Mentiuni \nPromoterii primesc comisionul de "<<Promoter::get_comision()<<"lei doar daca indeplinesc targetul de "<<Promoter::get_prag()<<" de anunturi distribuite\n";
 
-    Promoter pr1("Laur Mihnea","l_mihnea@gmail.com","Ploiesti",19,40,0,100,10);//nu a indeplinit targetul=>nu are comision
+    Promoter pr1("Laur Mihnea","l_mihnea@gmail.com","Ploiesti",19,40,0,100,10);//nu a indeplinit targetul=>nu primeste comisionul
     Promoter pr2("Dobre Mihaela","d_mihaela@gmail.com","Pitesti",18,80,0,200,10);
     Promoter pr3("Ion Razvan","i_razvan@gmail.com","Buzau",21,100,0,210,10);
     Promoter pr4("Mia Alina","mm_alina@gmail.com","Bucuresti",21,32,0,200,10);

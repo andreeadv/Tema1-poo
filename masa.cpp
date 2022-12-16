@@ -12,7 +12,7 @@ Masa&Masa::operator=(const Masa& other){
         zona = other.zona;
         nr_masa = other.nr_masa;
         nr_locuri=other.nr_locuri;
-        //std::cout << "operator= copiere masa\n";
+        //std::cout << "operator= copiere Masa\n";
         return *this;
     }
  Masa::~Masa(){

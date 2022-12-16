@@ -21,7 +21,7 @@ void Ospatar::activitate(){
       if(schimb==3)
       {
           double bonus=0;
-          bonus=0.25*get_start();//get_start();daca am get_start coincid bonusurile cu ce se afisarea cu apelarea bazei
+          bonus=0.25*get_start();
           std::cout<<nume<<" lucreaza tura de noapte => ";
           std::cout<<"Bonus ore de noapte: "<<bonus<<"lei\n\n";
           salariu+=bonus;

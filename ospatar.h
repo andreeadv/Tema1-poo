@@ -28,7 +28,7 @@ public:
      //activitatea la ospatari se refera la bonusul pe care il primesc in functie de tura pe care lucreaza
      //pt tura de noapte ospatarul primeste un bonus de 25% din salariul de start
      void activitate() override;
-     static int get_start();//salariul de baza la care se adauga bonusurile financiare ale ospatarilor este de 2500lei
+     static int get_start();//salariul de baza din care se calculeaza bonusurile financiare ale ospatarilor
      std::string get_nume()const;
      ///functie pt majorare salariu cu 30% ospatarilor din 2 in 2 ani
      double salariumajorat();//majorarea se face la salariu de start(salariul la angajare al unui ospatar)
