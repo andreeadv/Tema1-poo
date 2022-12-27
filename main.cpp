@@ -21,7 +21,7 @@ int main()
     Masa m2("Exterior",2,2);
     std::cout<<m1;
     std::cout<<m2;
-try{
+
     Preparat paste("Paste",250,32.5,20);
     Preparat limonada("Limonada",100,19.99,5);
     Preparat pizza1("Pizza Margherita",350,38,40);
@@ -60,11 +60,15 @@ try{
     //afisare nota de plata pt comanda c3
     std::cout<<"Nota de plata pentru comanda C3: "<< c3.notadeplata(preparate_comandate3)<<" lei \n\n";
 
-
+try{
     c1.set_timp();
     c2.set_timp();
     c3.set_timp();
     //c4.set_timp();//se afiseaza eroare pt depasire timp maxim de preparare
+
+}
+    catch(eroare_comanda &error)
+       {std::cout<<error.what()<<"\n";}
 
     std::cout<<"TIMP C1: "<<c1.get_timp()<<"\n";
     std::cout<<"TIMP C2: "<<c2.get_timp()<<"\n";
@@ -86,11 +90,9 @@ try{
         std::cout << comenzi[i];
     }
 
-
+try{
     std::cout<<"***************************\n\n OSPATARI: \n\n";
-
     std::cout<<">Mentiuni \nOspatarii primesc bonusuri financiare ce se calculeaza din suma de baza de "<<Ospatar::get_start()<<" lei\n";
-
     Ospatar o1("Anton Marian","a_marian@gmail.com","Bucuresti",20,5,2500,3);
     Ospatar o2("Micu Adina","m_adina@gmail.com","Bucuresti",18,1,2500,1);
     Ospatar o3("Craciun Alin","c_alin@gmial.com","Bucuresti",30,6,2500,2);
@@ -100,10 +102,7 @@ try{
     Ospatar o7("Pavel Mircea","p_mircea@gmial.com","Bucuresti",28,4,2500,1);
     //pt acesta se va afisa mesaj de eroare, pt ca nu are varsta>=18 ani
     //Ospatar o8("Dobre Mirela","p_mircea@gmial.com","Bucuresti",17,4,2500,1);
-
-
     std::cout<<"----------Detalii initiale pentru Ospatari----------\n";
-
     std::cout<<o1<<"\n";
     std::cout<<o2<<"\n";
     std::cout<<o3<<"\n";
@@ -111,33 +110,22 @@ try{
     std::cout<<o5<<"\n";
     std::cout<<o6<<"\n";
     std::cout<<o7<<"\n";
-
     std::cout<<"----------Raport bonusuri financiare pentru Ospatari---------\n\n";
-
     std::cout<<o1.get_nume()<<"\n"<<"Majorare de vechime:"<<o1.salariumajorat()<<"lei\n";
     o1.activitate();//bonusul pt schimbul de noapte se adauga la salariul curent, nu la salariul de baza
-
     std::cout<<o2.get_nume()<<"\n"<<"Majorare de vechime:"<<o2.salariumajorat()<<"\n";
     o2.activitate();
-
     std::cout<<o3.get_nume()<<"\n"<<"Majorare de vechime:"<<o3.salariumajorat()<<"\n";
     o3.activitate();
-
     std::cout<<o4.get_nume()<<"\n"<<"Majorare de vechime:"<<o4.salariumajorat()<<"\n";
     o4.activitate();
-
     std::cout<<o5.get_nume()<<"\n"<<"Majorare de vechime:"<<o5.salariumajorat()<<"\n";
     o5.activitate();
-
     std::cout<<o6.get_nume()<<"\n"<<"Majorare de vechime:"<<o6.salariumajorat()<<"\n";
     o6.activitate();
-
     std::cout<<o7.get_nume()<<"\n"<<"Majorare de vechime:"<<o7.salariumajorat()<<"\n";
     o7.activitate();
-
-
     std::cout<<"----------Detalii finale pentru Ospatari----------\n";
-
     std::cout<<o1<<"\n";
     std::cout<<o2<<"\n";
     std::cout<<o3<<"\n";
@@ -145,10 +133,7 @@ try{
     std::cout<<o5<<"\n";
     std::cout<<o6<<"\n";
     std::cout<<o7<<"\n";
-
-
     std::cout<<"***************************\n\n BUCATARI: \n\n";
-
     Bucatar b1("Ilie Mihai","i_mihai2000@gmail.com","Bucuresti",40,"Grill chef",1,"REVELION");
     Bucatar b2("Popa Mihaela","p_miha23@gmail.com","Bucuresti",25,"Pizzar",1,"MAJORAT");
     Bucatar b3("Iacob George","i_george@gmail.com","Bucuresti",30,"Patiser",0,"BOTEZ");
@@ -162,7 +147,6 @@ try{
     std::cout<<b4<<"\n";
 
     std::cout<<"ROLURILE BUCATARILOR: \n\n";
-
     b1.activitate();
     std::cout<<"---------------------\n";
     b2.activitate();
@@ -171,9 +155,7 @@ try{
     std::cout<<"---------------------\n";
     b4.activitate();
 
-
     std::cout<<"\n\n***************************\n\n PROMOTERI: \n\n";
-
     std::cout<<">Mentiuni \nPromoterii primesc comisionul de "<<Promoter::get_comision()<<"lei doar daca indeplinesc targetul de "<<Promoter::get_prag()<<" de anunturi distribuite\n";
 
     Promoter pr1("Laur Mihnea","l_mihnea@gmail.com","Ploiesti",19,40,0,100,10);//nu a indeplinit targetul=>nu are comision
@@ -181,14 +163,11 @@ try{
     Promoter pr3("Ion Razvan","i_razvan@gmail.com","Buzau",21,100,0,210,10);
     Promoter pr4("Mia Alina","mm_alina@gmail.com","Bucuresti",21,32,0,150,10);
 
-
     std::cout<<"\n---------Date initiale---------\n";
     std::cout<<pr1<<"\n";
     std::cout<<pr2<<"\n";
     std::cout<<pr3<<"\n";
     std::cout<<pr4<<"\n";
-
-
 
     std::cout<<"\n---------Status performante---------\n";
     pr1.activitate();
@@ -204,25 +183,30 @@ try{
     std::cout<<pr3<<"\n";
     std::cout<<pr4<<"\n";
 
-
-    std::cout<<"\n---RAPORT ACTIVITATE AL INTREGULUI PERSONAL---\n\n";
-
+    std::cout<<"\n---RAPORT DE ACTIVITATE AL INTREGULUI PERSONAL---\n\n";
     auto ang_ = {o1.clone(), o2.clone(),o3.clone(),o4.clone(),o5.clone(),o6.clone(),o7.clone(), b1.clone(), b2.clone(),b3.clone(),b4.clone(),pr1.clone(),pr2.clone(),pr3.clone(),pr4.clone()};//vectorul contine toti angajatii restaurantului
     Personal pers{ang_};
     pers.raport_activitate();
     //afisarea tuturor angajatilor
 //    for( const auto &angajat: ang_)
 //         std::cout << *angajat<< "\n";
+    Personal p;
+    std::cout<<"\n\nTEST dynamic_cast\n";
+    std::cout<<"\n\nApel testcast1 cu parametru --ospatar--\n";
+    p.testcast1(&o1);
+    std::cout<<"\nApel testcast1 cu parametru --promoter--\n";
+    p.testcast1(&pr1);
 
+    std::cout<<"\n\nApel testcast2 cu parametru --ospatar--\n";
+    p.testcast2(o1);
+    std::cout<<"\nApel testcast2 cu parametru --promoter--\n";
+    p.testcast2(pr1);
 }
     catch(eroare_angajat &error)
-       {std::cout<<error.what()<<"\n";}
-    catch(eroare_comanda &error)
        {std::cout<<error.what()<<"\n";}
     catch(eroare_plata &error)
        {std::cout<<error.what()<<"\n";}
 
-
-
     return 0;
 }
+
