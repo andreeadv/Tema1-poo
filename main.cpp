@@ -12,7 +12,7 @@
 #include "personal.h"
 #include "promoter.h"
 #include "exceptii.h"
-#include "dj.h"
+//#include "dj.h"
 
 
 int main()
