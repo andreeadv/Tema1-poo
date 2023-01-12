@@ -1,3 +1,7 @@
+#ifndef PERSONAL_H
+#define PERSONAL_H
+#include <iostream>
+#include <string>
 #include<memory>
 #include <utility>
 #include<vector>
@@ -27,7 +31,6 @@ public:
      friend void swap(Personal &p1, Personal &p2);
 
 };
-
 
 
 #endif
