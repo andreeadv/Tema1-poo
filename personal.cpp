@@ -34,36 +34,13 @@ std::ostream &operator<<(std::ostream &os, const Personal &pers) {
 
         return os;
     }
-void Personal:: testcast1(Angajat *angajat_){
+void Personal:: validare_salariu(Angajat *angajat_){
 
   if(auto* ao = dynamic_cast<Ospatar*>(angajat_)) {
-        std::cout << "test cast pointer reusit\n";
+        std::cout << "Validare reusita\n";
         ao->salariumajorat();
     }
     else
-        std::cout << "test cast pointer nereusit\n";
+        std::cout << "Validare nereusita\n";
 
-    try {
-        auto& ao = dynamic_cast<Ospatar&>(*angajat_);
-        std::cout << "test cast referinta reusit\n";
-        ao.salariumajorat();
-    } catch(std::bad_cast& err) {
-        std::cout << "test cast referinta nereusit: " << err.what() << "\n";
-    }
-}
-void Personal::testcast2(Angajat& angajat_) {
-    if(auto* ao = dynamic_cast<Promoter*>(&angajat_)) {
-        std::cout << "test2 cast pointer reusit\n";
-        ao->depasire_target();
-    }
-    else
-        std::cout << "test2 cast pointer nereusit\n";
-
-    try {
-        auto& co = dynamic_cast<Promoter&>(angajat_);
-        std::cout << "test2 cast referinta reusit\n";
-        co.depasire_target();
-    } catch(std::bad_cast& err) {
-        std::cout << "test2 cast referinta nereusit: " << err.what() << "\n";
-    }
 }

@@ -3,9 +3,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <utility>
 #include "masa.h"
 #include "preparat.h"
-#include "exceptii.h"
+#include "exceptii.h" 
 
 class Comanda{
     int ID_COMANDA;
@@ -15,7 +16,7 @@ class Comanda{
     int timptotalprep;
 
 public:
-    Comanda();
+
     Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_, int timptotalprep_);
     //int get_id()const;
     friend std::ostream& operator<<(std::ostream& os, Comanda& cmd);
@@ -25,5 +26,7 @@ public:
     int timptotal(std::vector<Preparat> preparate_comandate_);
     void set_timp();
     int get_timp()const;
+//    Comanda& operator=(const Comanda& other);
+//    Comanda(const Comanda& other);
 };
 #endif//COMANDA_H

@@ -1,9 +1,6 @@
 #include "comanda.h"
 
-Comanda::Comanda()
-{
-    //std::cout<<"Constructor fara parametrii Comanda\n";
-}
+
 Comanda::Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}{
 
 }
@@ -37,3 +34,14 @@ int Comanda::timptotal(std::vector<Preparat> preparate_comandate_){
           timp_total+=preparate_comandate_[i].get_timppreparare();
        return timp_total;
     }
+//Comanda&Comanda::operator=(const Comanda& other){
+//
+//        tip_plata = other.tip_plata ;
+//        tip_masa=other.tip_masa;
+//        preparate_comandate=other.preparate_comandate;
+//        timptotalprep=other.timptotalprep;
+//        //std::cout << "operator= \n";
+//        return *this;
+//    }
+//
+//Comanda::Comanda(const Comanda& other)=default;

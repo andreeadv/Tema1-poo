@@ -1,7 +1,3 @@
-#ifndef PERSONAL_H
-#define PERSONAL_H
-#include <iostream>
-#include <string>
 #include<memory>
 #include <utility>
 #include<vector>
@@ -25,8 +21,9 @@ public:
      Personal &operator=(Personal other);
 
      friend std::ostream &operator<<(std::ostream &os, const Personal &pers);
-     void testcast1(Angajat *angajat_);
-     void testcast2(Angajat &angajat_);
+
+     void validare_salariu(Angajat *angajat_);
+
      friend void swap(Personal &p1, Personal &p2);
 
 };

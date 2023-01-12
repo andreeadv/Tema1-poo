@@ -12,6 +12,7 @@
 #include "personal.h"
 #include "promoter.h"
 #include "exceptii.h"
+#include "dj.h"
 
 
 int main()
@@ -64,7 +65,7 @@ try{
     c1.set_timp();
     c2.set_timp();
     c3.set_timp();
-    //c4.set_timp();//se afiseaza eroare pt depasire timp maxim de preparare
+    c4.set_timp();//se afiseaza eroare pt depasire timp maxim de preparare
 
 }
     catch(eroare_comanda &error)
@@ -182,7 +183,23 @@ try{
     std::cout<<pr2<<"\n";
     std::cout<<pr3<<"\n";
     std::cout<<pr4<<"\n";
+    //adaugare derivata dupa tag
+/*
+    std::cout<<"\n***************************\n\n DJ: \n\n";
+    Dj dj1("Nita Adrian","n_adr@gmail.com","Buzau", 19,1,1,3500,2);
+    Dj dj2("Bucur Cristian","b_cristian@gmail.com","Ploiesti",25,0,0,2500,0);
 
+    std::cout<<dj1<<"\n";
+    std::cout<<dj2<<"\n";
+
+    std::cout<<"Raport activitate pentru fiecare dj\n\n";
+    dj1.activitate();
+    dj2.activitate();
+
+    std::cout<<"\nDetali finale: \n";
+    std::cout<<dj1<<"\n";
+    std::cout<<dj2<<"\n";
+*/
     std::cout<<"\n---RAPORT DE ACTIVITATE AL INTREGULUI PERSONAL---\n\n";
     auto ang_ = {o1.clone(), o2.clone(),o3.clone(),o4.clone(),o5.clone(),o6.clone(),o7.clone(), b1.clone(), b2.clone(),b3.clone(),b4.clone(),pr1.clone(),pr2.clone(),pr3.clone(),pr4.clone()};//vectorul contine toti angajatii restaurantului
     Personal pers{ang_};
@@ -191,22 +208,18 @@ try{
 //    for( const auto &angajat: ang_)
 //         std::cout << *angajat<< "\n";
     Personal p;
-    std::cout<<"\n\nTEST dynamic_cast\n";
-    std::cout<<"\n\nApel testcast1 cu parametru --ospatar--\n";
-    p.testcast1(&o1);
-    std::cout<<"\nApel testcast1 cu parametru --promoter--\n";
-    p.testcast1(&pr1);
+    //std::cout<<"\n\ndynamic_cast\n";
+    std::cout<<"\n\nValidare cu parametru --ospatar--\n";
+    p.validare_salariu(&o1);
+    std::cout<<"\nValidare cu parametru --promoter--\n";//promoterul este platit pe ora, astfel ca nu exista majorari pentru salariul sau
+    p.validare_salariu(&pr1);
 
-    std::cout<<"\n\nApel testcast2 cu parametru --ospatar--\n";
-    p.testcast2(o1);
-    std::cout<<"\nApel testcast2 cu parametru --promoter--\n";
-    p.testcast2(pr1);
 }
     catch(eroare_angajat &error)
        {std::cout<<error.what()<<"\n";}
     catch(eroare_plata &error)
        {std::cout<<error.what()<<"\n";}
 
+
     return 0;
 }
-
