@@ -44,15 +44,11 @@ int main()
     Comanda c2("card",m2,preparate_comandate2,0);
     Comanda c3("card",m2,preparate_comandate3,0);
     //afisare comenzi inainte de sortare
-
     std::cout<<"C1: "<<c1.get_id()<<c1<<"\n";
     std::cout<<"C2: "<<c2.get_id()<<c2<<"\n";
     std::cout<<"C3: "<<c3.get_id()<<c3<<"\n";
-    //afisare nota de plata pt comanda c1
     std::cout<<"Nota de plata pentru comanda C1: "<< c1.notadeplata(preparate_comandate1)<<" lei \n";
-    //afisare nota de plata pt comanda c1
     std::cout<<"Nota de plata pentru comanda C2: "<< c2.notadeplata(preparate_comandate2)<<" lei \n";
-    //afisare nota de plata pt comanda c3
     std::cout<<"Nota de plata pentru comanda C3: "<< c3.notadeplata(preparate_comandate3)<<" lei \n\n";
     c1.set_timp();
     c2.set_timp();
@@ -60,7 +56,6 @@ int main()
     std::cout<<"TIMP C1: "<<c1.get_timp()<<"\n";
     std::cout<<"TIMP C2: "<<c2.get_timp()<<"\n";
     std::cout<<"TIMP C3: "<<c3.get_timp()<<"\n";
-    //odonare comenzi crescator dupa timpul total de preparare
     std:: vector<Comanda>comenzi;
     comenzi.push_back(c1);
     comenzi.push_back(c2);
