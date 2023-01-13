@@ -163,6 +163,7 @@ try{
     Promoter pr2("Dobre Mihaela","d_mihaela@gmail.com","Pitesti",18,80,0,200,10);
     Promoter pr3("Ion Razvan","i_razvan@gmail.com","Buzau",21,100,0,210,10);
     Promoter pr4("Mia Alina","mm_alina@gmail.com","Bucuresti",21,32,0,150,10);
+    Promoter pr5("Dina Miruna","miruna@gmail.com","Ploiesti",20,20,0,150,7);
 
     std::cout<<"\n---------Date initiale---------\n";
     std::cout<<pr1<<"\n";
