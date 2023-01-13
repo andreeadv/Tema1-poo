@@ -22,7 +22,7 @@ int main()
     Masa m2("Exterior",2,2);
     std::cout<<m1;
     std::cout<<m2;
-
+try{
     Preparat paste("Paste",250,32.5,20);
     Preparat limonada("Limonada",100,19.99,5);
     Preparat pizza1("Pizza Margherita",350,38,40);
@@ -61,15 +61,13 @@ int main()
     //afisare nota de plata pt comanda c3
     std::cout<<"Nota de plata pentru comanda C3: "<< c3.notadeplata(preparate_comandate3)<<" lei \n\n";
 
-try{
+
     c1.set_timp();
     c2.set_timp();
     c3.set_timp();
-    c4.set_timp();//se afiseaza eroare pt depasire timp maxim de preparare
+   // c4.set_timp();//se afiseaza eroare pt depasire timp maxim de preparare
 
-}
-    catch(eroare_comanda &error)
-       {std::cout<<error.what()<<"\n";}
+
 
     std::cout<<"TIMP C1: "<<c1.get_timp()<<"\n";
     std::cout<<"TIMP C2: "<<c2.get_timp()<<"\n";
@@ -90,7 +88,9 @@ try{
     for(unsigned int i=0;i<comenzi.size();i++) {
         std::cout << comenzi[i];
     }
-
+}
+    catch(eroare_comanda &error)
+       {std::cout<<error.what()<<"\n";}
 try{
     std::cout<<"***************************\n\n OSPATARI: \n\n";
     std::cout<<">Mentiuni \nOspatarii primesc bonusuri financiare ce se calculeaza din suma de baza de "<<Ospatar::get_start()<<" lei\n";
