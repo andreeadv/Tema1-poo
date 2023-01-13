@@ -16,8 +16,7 @@ std::ostream& operator<<(std::ostream& os, Comanda& cmd) {
 //        }
 void Comanda::set_timp(){
     timptotalprep=timptotal(preparate_comandate);
-    if(timptotalprep>100)
-        throw eroare_comanda("Comanda a depasit timpul maxim de preparare!");
+
     }
 int Comanda::get_timp()const{
     return timptotalprep;
@@ -34,14 +33,3 @@ int Comanda::timptotal(std::vector<Preparat> preparate_comandate_){
           timp_total+=preparate_comandate_[i].get_timppreparare();
        return timp_total;
     }
-//Comanda&Comanda::operator=(const Comanda& other){
-//
-//        tip_plata = other.tip_plata ;
-//        tip_masa=other.tip_masa;
-//        preparate_comandate=other.preparate_comandate;
-//        timptotalprep=other.timptotalprep;
-//        //std::cout << "operator= \n";
-//        return *this;
-//    }
-//
-//Comanda::Comanda(const Comanda& other)=default;
