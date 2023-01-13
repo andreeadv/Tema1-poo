@@ -1,11 +1,11 @@
 #include "comanda.h"
 
-
-Comanda::Comanda(const std::string& tip_plata_, Masa &tip_masa_, int id, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}{
-
+int Comanda::id_max=100;
+Comanda::Comanda(const std::string& tip_plata_, Masa &tip_masa_, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id_max}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}{
+++id_max;
 }
 std::ostream& operator<<(std::ostream& os, Comanda& cmd) {
-       os << "ID comanda: " << cmd.ID_COMANDA << " Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<", TIMP: "<<cmd.timptotalprep<<" minute\n\n";
+       os << " Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<", TIMP: "<<cmd.timptotalprep<<" minute\n\n";
 
        for (const auto &prep: cmd.preparate_comandate)
             os <<">"<< prep << " \n";
@@ -32,4 +32,14 @@ int Comanda::timptotal(std::vector<Preparat> preparate_comandate_){
        for(auto i = 0u;i<preparate_comandate_.size();i++)
           timp_total+=preparate_comandate_[i].get_timppreparare();
        return timp_total;
+    }
+
+Comanda::Comanda(const Comanda& other)=default;
+
+Comanda&Comanda::operator=(const Comanda& other){
+        tip_plata = other.tip_plata;
+        tip_masa=other.tip_masa;
+        preparate_comandate=other.preparate_comandate;
+        timptotalprep=other.timptotalprep;
+        return *this;
     }

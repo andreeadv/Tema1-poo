@@ -40,9 +40,9 @@ int main()
     preparate_comandate4.push_back(pizza1);
     preparate_comandate4.push_back(pizza2);
     std::cout<<"***************************\n COMENZI: \n";
-    Comanda c1("cash",m1,101,preparate_comandate1,0);
-    Comanda c2("card",m2,102,preparate_comandate2,0);
-    Comanda c3("card",m2,103,preparate_comandate3,0);
+    Comanda c1("cash",m1,preparate_comandate1,0);
+    Comanda c2("card",m2,preparate_comandate2,0);
+    Comanda c3("card",m2,preparate_comandate3,0);
     //afisare comenzi inainte de sortare
     std::cout<<"C1: "<<c1<<"\n";
     std::cout<<"C2: "<<c2<<"\n";
@@ -66,7 +66,7 @@ int main()
     comenzi.push_back(c3);
     //odonare comenzi crescator dupa timpul total de pregatire
     std::sort(comenzi.begin(),comenzi.end(),[](const Comanda & a, const Comanda & b) -> bool{
-    return a.get_timp()<b.get_timp();//pentru fals se face swap
+         return a.get_timp()<b.get_timp();//pentru fals se face swap
     });
     std::cout<<"COMENZI SORTATE DUPA TIMPUL DE PRGATIRE\n";
     for(unsigned int i=0;i<comenzi.size();i++) {
@@ -120,14 +120,11 @@ try{
     Bucatar b2("Popa Mihaela","p_miha23@gmail.com","Bucuresti",25,"Pizzar",1,"MAJORAT");
     Bucatar b3("Iacob George","i_george@gmail.com","Bucuresti",30,"Patiser",0,"BOTEZ");
     Bucatar b4("Mihai Elena","m_eli@gmail.com","Bucuresti",25,"Patiser",0,"NUNTA");
-
     std::cout<<"DETALII: \n\n";
-
     std::cout<<b1<<"\n";
     std::cout<<b2<<"\n";
     std::cout<<b3<<"\n";
     std::cout<<b4<<"\n";
-
     std::cout<<"ROLURILE BUCATARILOR: \n\n";
     b1.activitate();
     std::cout<<"---------------------\n";
@@ -136,29 +133,23 @@ try{
     b3.activitate();
     std::cout<<"---------------------\n";
     b4.activitate();
-
     std::cout<<"\n\n***************************\n\n PROMOTERI: \n\n";
     std::cout<<">Mentiuni \nPromoterii primesc comisionul de "<<Promoter::get_comision()<<"lei doar daca indeplinesc targetul de "<<Promoter::get_prag()<<" de anunturi distribuite\n";
-
     Promoter pr1("Laur Mihnea","l_mihnea@gmail.com","Ploiesti",19,40,0,100,10);//nu a indeplinit targetul=>nu are comision
     Promoter pr2("Dobre Mihaela","d_mihaela@gmail.com","Pitesti",18,80,0,200,10);
     Promoter pr3("Ion Razvan","i_razvan@gmail.com","Buzau",21,100,0,210,10);
     Promoter pr4("Mia Alina","mm_alina@gmail.com","Bucuresti",21,32,0,150,10);
-
     std::cout<<"\n---------Date initiale---------\n";
     std::cout<<pr1<<"\n";
     std::cout<<pr2<<"\n";
     std::cout<<pr3<<"\n";
     std::cout<<pr4<<"\n";
-
     std::cout<<"\n---------Status performante---------\n";
     pr1.activitate();
     pr2.activitate();
     pr3.activitate();
     pr4.activitate();
-
     pr3.depasire_target();//plata_finala=100*10+600+(210-200)*10=1000+600+100=17000
-
     std::cout<<"\n---------Date finale--------\n";//evidentierea sumei pe care promoterul o primeste la sfarsitul lunii
     std::cout<<pr1<<"\n";
     std::cout<<pr2<<"\n";
