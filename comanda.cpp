@@ -4,16 +4,17 @@ int Comanda::id_max=100;
 Comanda::Comanda(const std::string& tip_plata_, Masa &tip_masa_, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id_max}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}{
 ++id_max;
 }
+
 std::ostream& operator<<(std::ostream& os, Comanda& cmd) {
-       os << " Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<", TIMP: "<<cmd.timptotalprep<<" minute\n\n";
+       os <<" Tip plata: " << cmd.tip_plata<<", Nr. masa: "<<cmd.tip_masa.get_masa()<<" Preparate comandate: "<<", TIMP: "<<cmd.timptotalprep<<" minute\n\n";
 
        for (const auto &prep: cmd.preparate_comandate)
             os <<">"<< prep << " \n";
        return os;
     }
-//int Comanda::get_id()const{
-//        return ID_COMANDA;
-//        }
+int Comanda::get_id()const{
+       return ID_COMANDA;
+        }
 void Comanda::set_timp(){
     timptotalprep=timptotal(preparate_comandate);
 

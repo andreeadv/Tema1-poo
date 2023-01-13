@@ -44,9 +44,10 @@ int main()
     Comanda c2("card",m2,preparate_comandate2,0);
     Comanda c3("card",m2,preparate_comandate3,0);
     //afisare comenzi inainte de sortare
-    std::cout<<"C1: "<<c1<<"\n";
-    std::cout<<"C2: "<<c2<<"\n";
-    std::cout<<"C3: "<<c3<<"\n";
+
+    std::cout<<"C1: "<<c1.get_id()<<c1<<"\n";
+    std::cout<<"C2: "<<c2.get_id()<<c2<<"\n";
+    std::cout<<"C3: "<<c3.get_id()<<c3<<"\n";
     //afisare nota de plata pt comanda c1
     std::cout<<"Nota de plata pentru comanda C1: "<< c1.notadeplata(preparate_comandate1)<<" lei \n";
     //afisare nota de plata pt comanda c1
