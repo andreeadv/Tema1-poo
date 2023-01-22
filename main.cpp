@@ -188,6 +188,14 @@ try{
     catch(eroare_plata &error)
        {std::cout<<error.what()<<"\n";}
 
+///tema 3
+    std::cout<<"\n\nPreparate noi: "<<"\n";
 
+    PreparatBuilder pb;
+    Preparat fries=pb.Nume_preparat("Cartofi prajiti").Timp_prepare(5).Pret(7.5).Gramaj(200).build();
+    Preparat icecream=pb.Nume_preparat("Oreo ice-cream").Timp_prepare(10).Pret(15).Gramaj(125).build();
+    std::cout<<fries<<"\n";
+    std::cout<<icecream<<"\n";
+    
     return 0;
 }
