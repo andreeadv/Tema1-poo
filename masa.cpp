@@ -21,16 +21,44 @@ T Masa<T>::get_masa()const{
 	return nr_masa;
 }
 
+
 template <typename T>
 std::ostream &operator<<(std::ostream &os, const Masa<T>& ms){
 
-	os << "Zona: " << ms.zona << ", Numar masa: " << ms.nr_masa << ", Numar locuri: " << ms.nr_locuri<<"\n";
+	os << "Zona: ";
+	if (ms.zona==1){
+        os<<"interior";
+	}
+    else{
+        os<<"exterior";
+    }
+	os<< ", Numar masa: " << ms.nr_masa << ", Numar locuri: " << ms.nr_locuri<<"\n";
 	return os;
 }
 
 template <typename T>
 Masa<T>::~Masa()=default;
 
+template<typename T>
+void Masa<T>::rezervari(){
+    if(nr_locuri<4){
+            std::cout<<"libera\n";
+    }
+    else {
+        std::cout<<" rezervata pentru grupuri organizate\n";
+    }
+
+}
+template <typename T>
+T LocuriPeZone(const std::vector<Masa<T>>&mese, T zona_){
+        T total=0;
+        for(auto i=0u;i<mese.size();i++){
+            if(mese[i].zona==zona_){
+                total+=mese[i].nr_locuri;
+            }
+        }
+        return total;
+    }
 /*
 Masa::Masa(){
     //std::cout<<"Constructor fara parametrii Masa\n";

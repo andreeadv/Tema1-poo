@@ -1,8 +1,8 @@
 #include <iostream>
-#include <string>
-#include <vector>
+#include<string>
+#include<vector>
 #include <algorithm>
-#include <utility>
+#include<utility>
 #include "masa.h"
 #include "preparat.h"
 #include "comanda.h"
@@ -17,15 +17,30 @@
 
 int main()
 {
-    std::cout<<" MESE: \n";
-    Masa<int> m1(1,1,3);
-    Masa<int> m2(2,2,2);
-    std::cout<<m1;
-    std::cout<<m2;
-    Preparat paste("Paste",250,32.5,20);
-    Preparat limonada("Limonada",100,19.99,5);
-    Preparat pizza1("Pizza Margherita",350,38,40);
-    Preparat pizza2("Pizza Quattro stagioni",350,45,40);
+    std::cout<<"-------MESE-------\n\n";
+    Masa<int> masa1(1,1,2);
+    Masa<int> masa2(1,2,3);
+    Masa<int> masa3(1,3,6);
+    Masa<int> masa4(2,4,12);
+    Masa<int> masa5(2,5,5);
+
+    std::cout<<masa1<<"->";masa1.rezervari();std::cout<<"\n";
+    std::cout<<masa2<<"->";masa2.rezervari();std::cout<<"\n";
+    std::cout<<masa3<<"->";masa3.rezervari();std::cout<<"\n";
+    std::cout<<masa4<<"->";masa4.rezervari();std::cout<<"\n";
+    std::cout<<masa5<<"->";masa5.rezervari();std::cout<<"\n";
+    std::vector<Masa<int>> mese_arr = {masa1, masa2, masa3, masa4, masa5};
+
+    std::cout<<"Nr. total de locuri disponibile la interior: "<<LocuriPeZone(mese_arr,1)<<"\n";
+    std::cout<<"Nr. total de locuri disponibile la exterior: "<<LocuriPeZone(mese_arr,2)<<"\n\n";
+
+    PreparatBuilder pb;
+    Preparat paste=pb.Nume_preparat("Paste").Gramaj(250).Pret(32.5).Timp_prepare(20).build();
+    Preparat limonada=pb.Nume_preparat("Limonada").Gramaj(100).Pret(19.99).Timp_prepare(5).build();
+    Preparat pizza1=pb.Nume_preparat("Pizza Margherita").Gramaj(350).Pret(38).Timp_prepare(40).build();
+    Preparat pizza2=pb.Nume_preparat("Pizza Quattro stagioni").Gramaj(350).Pret(45).Timp_prepare(40).build();
+
+
     std:: vector<Preparat>preparate_comandate1;
     preparate_comandate1.push_back(paste);
     preparate_comandate1.push_back(limonada);
@@ -39,10 +54,10 @@ int main()
     preparate_comandate4.push_back(limonada);
     preparate_comandate4.push_back(pizza1);
     preparate_comandate4.push_back(pizza2);
-    std::cout<<"***************************\n COMENZI: \n";
-    Comanda c1("cash",m1,preparate_comandate1,0);
-    Comanda c2("card",m2,preparate_comandate2,0);
-    Comanda c3("card",m2,preparate_comandate3,0);
+    std::cout<<"***************************\n\n COMENZI: \n";
+    Comanda c1("cash",masa1,preparate_comandate1,0);
+    Comanda c2("card",masa2,preparate_comandate2,0);
+    Comanda c3("card",masa2,preparate_comandate3,0);
     //afisare comenzi inainte de sortare
 
     std::cout<<"C1: "<<c1.get_id()<<c1<<"\n";
@@ -192,15 +207,6 @@ try{
        {std::cout<<error.what()<<"\n";}
     catch(eroare_plata &error)
        {std::cout<<error.what()<<"\n";}
-
-    ///tema 3
-    std::cout<<"\n\nPreparate noi: "<<"\n";
-
-    PreparatBuilder pb;
-    Preparat fries=pb.Nume_preparat("Cartofi prajiti").Timp_prepare(5).Pret(7.5).Gramaj(200).build();
-    Preparat icecream=pb.Nume_preparat("Oreo ice-cream").Timp_prepare(10).Pret(15).Gramaj(125).build();
-    std::cout<<fries<<"\n";
-    std::cout<<icecream<<"\n";
 
 
     return 0;

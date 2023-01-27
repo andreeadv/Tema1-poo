@@ -1,13 +1,16 @@
 #ifndef MASA_H
 #define MASA_H
 #include <iostream>
-
+#include <vector>
 
 template <typename T>
 class Masa;
 
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const Masa<T>& ms);
+
+template <typename T>
+T LocuriPeZone(const std::vector<Masa<T>>&mese, T zona_);
 
 template <typename T>
 class Masa{
@@ -25,6 +28,10 @@ public:
 	T get_masa()const;
 
 	friend std::ostream &operator<< <>(std::ostream &os, const Masa<T>& ms);
+    //functie membru ce eticheteaza masa ca fiind rezervata/libera in functie de nr de locuri
+    void rezervari();
+    //determina numarul total de locuri pt fiecare zona a restaurantului
+    friend T LocuriPeZone <>(const std::vector<Masa<T>>&mese, T zona_);
 
 	~Masa();
 };
