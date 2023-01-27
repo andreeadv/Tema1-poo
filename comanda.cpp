@@ -1,7 +1,8 @@
 #include "comanda.h"
 
+
 int Comanda::id_max=100;
-Comanda::Comanda(const std::string& tip_plata_, Masa &tip_masa_, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id_max}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}{
+Comanda::Comanda(const std::string& tip_plata_, Masa<int> &tip_masa_, std::vector<Preparat> preparate_comandate_, int timptotalprep_) : ID_COMANDA{id_max}, tip_plata{tip_plata_},tip_masa{tip_masa_}, preparate_comandate(std::move(preparate_comandate_)), timptotalprep{timptotalprep_}{
 ++id_max;
 }
 
