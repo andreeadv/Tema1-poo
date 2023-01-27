@@ -5,12 +5,7 @@ template <typename T>
 Masa<T>:: Masa(T zona_, T nrmasa_, T nrlocuri_):zona(zona_),nr_masa(nrmasa_),nr_locuri(nrlocuri_){}
 
 template <typename T>
-Masa<T>:: Masa(const Masa<T> &other){
-
-	zona=other.zona;
-	nr_masa=other.nr_masa;
-	nr_locuri=other.nr_locuri;
-}
+Masa<T>:: Masa(const Masa<T> &other):zona(other.zona), nr_masa(other.nr_masa), nr_locuri(other.nr_locuri){}
 
 template <typename T>
 Masa<T> &Masa<T>:: operator=(const Masa<T> &other){
