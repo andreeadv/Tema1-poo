@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <utility>
+#include "masa.h"
 #include "preparat.h"
 #include "comanda.h"
 #include "ospatar.h"
